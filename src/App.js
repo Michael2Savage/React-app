@@ -1,23 +1,21 @@
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/navbar.js';
+import { Switch, Route } from 'react-router-dom';
+import Home from './view/Home';
+import Shop from './view/Shop';
 
 function App() {
+  // const [variable, setfunction] = useState()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+        <Switch>
+          <Route exact path = '/' render={()=><Home />}/>
+          <Route exact path = '/shop' render={()=><Shop />}/>
+        </Switch>
     </div>
   );
 }
